@@ -145,15 +145,8 @@ h1 { max-width: 760px; margin: 0; font-size: clamp(42px, 4.5vw, 64px); line-heig
 .empty-state p { color: var(--muted); }
 
 .recommendation-hero { padding: 68px 0 36px; }
-.recommendation-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 390px; gap: 54px; align-items: end; margin-top: 18px; }
+.recommendation-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 60px; align-items: end; margin-top: 18px; }
 .recommendation-hero h1 { max-width: 690px; font-size: clamp(38px, 4vw, 56px); line-height: 1.02; }
-.recommendation-basis { padding: 24px; border: 1px solid var(--line); border-top: 4px solid var(--purple); background: #fff; box-shadow: 0 8px 30px rgba(38,34,96,.06); }
-.recommendation-basis > span { color: var(--purple-strong); font-size: 10px; font-weight: 850; letter-spacing: .12em; }
-.recommendation-basis > strong { display: block; margin-top: 8px; font-size: 21px; }
-.recommendation-basis > p { margin: 14px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
-.basis-path { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 6px; align-items: center; margin-top: 18px; }
-.basis-path b { min-height: 54px; display: grid; place-items: center; padding: 8px; border: 1px solid var(--line); background: #f8f8fc; font-size: 10px; line-height: 1.35; text-align: center; }
-.basis-path i { color: var(--purple); font-style: normal; }
 
 .recommendation-controls { padding: 30px; border: 1px solid var(--line); background: #fff; }
 .recommendation-controls h2, .recommendation-section h2, .recommendation-learning h2 { margin: 7px 0 0; font-size: clamp(24px, 2.3vw, 34px); line-height: 1.1; letter-spacing: -.035em; }
@@ -393,8 +386,6 @@ footer a { color: var(--purple-strong); font-weight: 700; }
   .recommendation-hero-grid > *, .recommendation-section-head > * { min-width: 0; }
   .recommendation-lenses, .recommended-people-grid, .recommended-content-grid, .recommendation-filter-bar, .material-grid, .detail-body-grid, .detail-related-grid { grid-template-columns: 1fr; }
   .recommendation-section-head { align-items: start; flex-direction: column; }
-  .basis-path { grid-template-columns: 1fr; }
-  .basis-path i { transform: rotate(90deg); justify-self: center; }
   .content-recommendation-card .recommendation-actions { grid-template-columns: 1fr; }
   .content-detail-page { width: min(100% - 28px, 1180px); }
   .detail-hero, .research-materials, .detail-copy, .session-summary, .detail-sessions, .detail-related { padding: 24px 18px; }
@@ -559,11 +550,11 @@ footer a { color: var(--purple-strong); font-weight: 700; }
                   between each recommendation and your <span id="recommendationsInterestText">Human–AI Interaction</span> interests.
                 </p>
               </div>
-              <aside class="recommendation-basis" aria-label="Recommendation basis">
-                <span>BECAUSE YOU STUDY</span>
+              <aside class="interest-card" aria-label="Recommendation interests">
+                <span>Your starting point</span>
                 <strong id="recommendationPrimaryInterest">Human–AI Interaction</strong>
-                <div class="basis-path"><b>Your field</b><i>→</i><b>Shared question or method</b><i>→</i><b>Adjacent field</b></div>
-                <p id="recommendationExploreCopy">Recommendations currently expand into Accessibility, Critical Design and Education.</p>
+                <p id="recommendationExploreCopy">Looking beyond your field: Accessibility, Critical Design and Education.</p>
+                <button id="editRecommendationInterests" type="button" aria-haspopup="dialog">Edit interests</button>
               </aside>
             </div>
           </section>
@@ -929,8 +920,8 @@ function renderInterestSummary() {
   $("#recommendationsInterestText").textContent = primary;
   $("#recommendationPrimaryInterest").textContent = primary;
   $("#recommendationExploreCopy").textContent = explore.length
-    ? `Recommendations currently expand into ${formatInterestList(explore)}.`
-    : "Add exploration directions to broaden your recommendations.";
+    ? `Looking beyond your field: ${formatInterestList(explore)}.`
+    : "Add directions you want to explore.";
 }
 
 function renderPrimaryInterestOptions() {
@@ -1423,6 +1414,7 @@ $("#saveForm").addEventListener("submit", event => {
 $("#clearSelection").addEventListener("click", () => { state.selected.clear(); renderPeople(); updateCompareBar(); });
 $("#viewSelected").addEventListener("click", () => { const first = people.find(p => state.selected.has(p.id)); if (first) openDrawer(first); });
 $("#editInterests").addEventListener("click", openInterestDialog);
+$("#editRecommendationInterests").addEventListener("click", openInterestDialog);
 $("#closeInterestDialog").addEventListener("click", () => interestDialog.close());
 $("#cancelInterestEdit").addEventListener("click", () => interestDialog.close());
 $("#primaryInterestTrigger").addEventListener("click", () => toggleInterestDropdown("primaryInterestOptions", "primaryInterestTrigger"));
