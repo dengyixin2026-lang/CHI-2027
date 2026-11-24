@@ -70,7 +70,7 @@ button { color: inherit; }
 .text-button { border: 0; background: transparent; color: var(--purple-strong); font-weight: 700; text-decoration: none; cursor: pointer; }
 .text-button span { display: inline-grid; place-items: center; min-width: 22px; height: 22px; margin-left: 4px; border-radius: 50%; color: #fff; background: var(--purple); font-size: 11px; }
 
-.hero, .directory, .recommendation-hero, .recommendation-controls, .recommendation-section, .recommendation-learning, footer { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+.hero, .directory, .recommendation-hero, .recommendation-controls, .recommendation-section, footer { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
 .hero { padding: 52px 0 24px; }
 .eyebrow, .section-kicker, .dialog-kicker, .panel-heading span { color: var(--purple-strong); font-size: 11px; font-weight: 850; letter-spacing: .13em; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 60px; align-items: end; }
@@ -149,7 +149,7 @@ h1 { max-width: 760px; margin: 0; font-size: clamp(42px, 4.5vw, 64px); line-heig
 .recommendation-hero h1 { max-width: 690px; font-size: clamp(38px, 4vw, 56px); line-height: 1.02; }
 
 .recommendation-controls { padding: 30px; border: 1px solid var(--line); background: #fff; }
-.recommendation-controls h2, .recommendation-section h2, .recommendation-learning h2 { margin: 7px 0 0; font-size: clamp(24px, 2.3vw, 34px); line-height: 1.1; letter-spacing: -.035em; }
+.recommendation-controls h2, .recommendation-section h2 { margin: 7px 0 0; font-size: clamp(24px, 2.3vw, 34px); line-height: 1.1; letter-spacing: -.035em; }
 .recommendation-lenses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
 .recommendation-lens { min-height: 124px; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; gap: 5px 12px; padding: 17px; border: 1px solid var(--line); background: #fff; text-align: left; cursor: pointer; }
 .recommendation-lens:hover { border-color: #aaa5ed; }
@@ -266,10 +266,6 @@ h1 { max-width: 760px; margin: 0; font-size: clamp(42px, 4.5vw, 64px); line-heig
 .related-person small { margin-top: 3px; color: var(--muted); }
 .related-person i { grid-column: 2; color: var(--purple-strong); font-size: 11px; font-style: normal; font-weight: 750; }
 
-.recommendation-learning { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: end; margin-top: 70px; margin-bottom: 70px; padding: 38px; color: #fff; background: var(--navy); }
-.recommendation-learning span { color: #a9a4ff; font-size: 10px; font-weight: 850; letter-spacing: .13em; }
-.recommendation-learning h2 { color: #fff; }
-.recommendation-learning > p { margin: 0; color: #c9c9d6; font-size: 14px; line-height: 1.7; }
 
 footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 footer p { margin: 0; }
@@ -379,10 +375,10 @@ footer a { color: var(--purple-strong); font-weight: 700; }
   .topbar { padding: 0 18px; }
   .topbar p { display: none; }
   .topbar-actions { margin-left: auto; }
-  .hero, .directory, .recommendation-hero, .recommendation-controls, .recommendation-section, .recommendation-learning, footer { width: min(100% - 28px, 1180px); }
+  .hero, .directory, .recommendation-hero, .recommendation-controls, .recommendation-section, footer { width: min(100% - 28px, 1180px); }
   .hero { padding-top: 44px; }
   .hero-grid { grid-template-columns: 1fr; gap: 24px; }
-  .recommendation-hero-grid, .recommendation-learning { grid-template-columns: 1fr; gap: 26px; }
+  .recommendation-hero-grid { grid-template-columns: 1fr; gap: 26px; }
   .recommendation-hero-grid > *, .recommendation-section-head > * { min-width: 0; }
   .recommendation-lenses, .recommended-people-grid, .recommended-content-grid, .recommendation-filter-bar, .material-grid, .detail-body-grid, .detail-related-grid { grid-template-columns: 1fr; }
   .recommendation-section-head { align-items: start; flex-direction: column; }
@@ -593,10 +589,6 @@ footer a { color: var(--purple-strong); font-weight: 700; }
             <div id="recommendedPeopleGrid" class="recommended-people-grid"></div>
           </section>
 
-          <section class="recommendation-learning" aria-labelledby="recommendation-learning-title">
-            <div><span>FEEDBACK LOOP</span><h2 id="recommendation-learning-title">The system should learn without becoming a black box.</h2></div>
-            <p>“More like this” strengthens the visible recommendation lens. “Not relevant” removes an item and explains what changed. You stay in control of the recommendation logic.</p>
-          </section>
         </div>
 
         <div id="contentDetailView" hidden>
